@@ -46,25 +46,25 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#151515",
     borderRadius: 10,
-    marginTop: 70,
-    marginBottom: 20,
+    marginTop: 80,
+    marginBottom: 10,
   },
 
   statusBarContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 6,
-  },
+   },
 
   progress: {
     borderRadius: 10,
-    width: 250,
-    heigth: 25,
+    width: 290,
+    heigth: 0,
   },
 
   icon: {
-    width: 25,
-    height: 25,
+    width: 30,
+    height: 30,
     marginRight: 5,
   },
 });
