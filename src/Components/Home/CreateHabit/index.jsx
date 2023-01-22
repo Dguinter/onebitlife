@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 export default function CreateHabit ({ habitArea, borderColor}){
 
     function handleCreate(){
-        console.log('Botão da área clicado: ${habitArea}')
+        console.log("Botão da área clicado:", habitArea);
     }
 
     return(

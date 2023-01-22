@@ -27,7 +27,7 @@ export default function StatusBar() {
           source={require("../../../assets/icons/bodyIcon.png")}
           style={styles.icon}
         />
-        <ProgressBar progress={0} color={"#FF0043"} style={styles.progress} />
+        <ProgressBar progress={0} Cclor={"#FF0043"} style={styles.progress} />
       </View>
 
       <View style={styles.statusBarContainer}>
