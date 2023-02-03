@@ -25,7 +25,7 @@ export default function ExplanationCard() {
           style={styles.icon}
         />
         <Text style={styles.description}>
-          <Text style={styles.money}>Finança: </Text> hbitos para te ajudar no
+          <Text style={styles.money}>Finança:</Text> Hábitos para te ajudar no
           controle financeiro.
         </Text>
       </View>

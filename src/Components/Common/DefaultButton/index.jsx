@@ -24,7 +24,7 @@ export default function DefaultButton({
           alignItems: "center",
           justifyContent: "center",
           borderWidth: 1,
-          borderColor: "#FFFFFF",
+          borderColor: "red",
           borderRadius: 10,
           marginBottom: 20,
         },
