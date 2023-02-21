@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, setHabitInput } from 'react'
+import React, { useEffect, useRef, useState, setHabitInput } from "react";
 import {
   View,
   Text,
@@ -6,20 +6,23 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-} from 'react-native'
+} from "react-native";
 
-import { useNavigation } from '@react-navigation/native'
-import Notification from '../../Components/HabitPage/Notification'
-import SelectHabit from '../../Components/HabitPage/SelectHabit'
-import SelectFrequency from '../../Components/HabitPage/FrequencyHabit'
+import { useNavigation } from "@react-navigation/native";
+import Notification from "../../Components/HabitPage/Notification";
+import SelectHabit from "../../Components/HabitPage/SelectHabit";
+import SelectFrequency from "../../Components/HabitPage/FrequencyHabit";
+import TimeDataPicker from "../../Components/HabitPage/TimePicker";
 
 export default function HabitPage({ route }) {
-  const navigation = useNavigation()
-  const [habitInput, setHabitInput] = useState()
-  const [frequencyInput, setFrequencyInput] = useState()
-  const [notificationToggle, setNotificationToggle] = useState()
+  const navigation = useNavigation();
+  const [habitInput, setHabitInput] = useState();
+  const [frequencyInput, setFrequencyInput] = useState();
+  const [notificationToggle, setNotificationToggle] = useState();
+  const [dayNotification, setDayNotification] = useState();
+  const [timeNotification, setNotificationTime] = useState();
 
-  const { create, habit } = route.params
+  const { create, habit } = route.params;
 
   return (
     <View style={styles.container}>
@@ -30,12 +33,12 @@ export default function HabitPage({ route }) {
             onPress={() => navigation.goBack()}
           >
             <Image
-              source={require('../../assets/icons/arrowBack.png')}
+              source={require("../../assets/icons/arrowBack.png")}
               style={styles.arrowBack}
             />
           </TouchableOpacity>
           <View style={styles.mainContent}>
-            <Text style={styles.title}>Configurações {'\n'} de hábito</Text>
+            <Text style={styles.title}>Configurações {"\n"} de hábito</Text>
             <Text style={styles.inputText}>Área</Text>
             <View style={styles.inputContainer}>
               <Text style={styles.area}>{habit?.habitArea}</Text>
@@ -47,22 +50,34 @@ export default function HabitPage({ route }) {
               habitFrequency={habit?.habitFrequency}
               frequencyInput={setFrequencyInput}
             />
-            {frequencyInput === 'Mensal' ? null : (
+            {frequencyInput === "Mensal" ? null : (
               <Notification
                 notificationToggle={notificationToggle}
                 setNotificationToggle={setNotificationToggle}
               />
             )}
+
+            {notificationToggle ? (
+              frequencyInput === "Mensal" ? null : (
+                <TimeDataPicker
+                  frequency={frequencyInput}
+                  dayNotification={dayNotification}
+                  timeNotification={timeNotification}
+                  setDayNotification={setDayNotification}
+                  SetTimeNotification={setNotificationTime}
+                />
+              )
+            ) : null}
           </View>
         </View>
       </ScrollView>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#151515',
+    backgroundColor: "#151515",
     flex: 1,
   },
   backPageBtn: {
@@ -76,16 +91,16 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     width: 250,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "white",
     fontSize: 30,
   },
   inputText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
     marginTop: 35,
     marginBottom: 10,
@@ -93,13 +108,13 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: "white",
     borderRadius: 10,
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
   area: {
-    color: '#BBBBBB',
+    color: "#BBBBBB",
     fontSize: 15,
   },
-})
+});

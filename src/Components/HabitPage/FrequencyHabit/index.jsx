@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { Image, View, StyleSheet } from 'react-native'
-import { SelectList } from 'react-native-dropdown-select-list'
+import React, { useState, useEffect } from "react";
+import { Image, View, StyleSheet } from "react-native";
+import { SelectList } from "react-native-dropdown-select-list";
 
 export default function SelectFrequency({ habitFrequency, frequencyInput }) {
   const [selected, setSelected] = useState(
-    habitFrequency ? habitFrequency : '-',
-  )
+    habitFrequency ? habitFrequency : "-"
+  );
 
   const data = [
-    { key: 'Diário', value: 'Diário' },
-    { key: 'Semanal', value: 'Semanal' },
-    { key: 'Mensal', value: 'Mensal' },
-  ]
+    { key: "Diário", value: "Diário" },
+    { key: "Semanal", value: "Semanal" },
+    { key: "Mensal", value: "Mensal" },
+  ];
 
   useEffect(() => {
-    frequencyInput(habitFrequency ? habitFrequency : undefined)
-  }, [])
+    frequencyInput(habitFrequency ? habitFrequency : undefined);
+  }, []);
 
   return (
     <View style={{ marginBottom: 20 }}>
@@ -24,8 +24,8 @@ export default function SelectFrequency({ habitFrequency, frequencyInput }) {
         search={false}
         setSelected={setSelected}
         onSelect={() => {
-          alert(selected)
-          frequencyInput(selected)
+          alert(selected);
+          frequencyInput(selected);
         }}
         placeholder={selected}
         boxStyles={styles.boxStyle}
@@ -35,25 +35,25 @@ export default function SelectFrequency({ habitFrequency, frequencyInput }) {
         dropdownTextStyles={styles.dropdownTextStyle}
         arrowicon={
           <Image
-            source={require('../../../assets/icons/arrowDropdown.png')}
+            source={require("../../../assets/icons/arrowDropdown.png")}
             style={styles.arrow}
           />
         }
       />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   boxStyle: {
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: "white",
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
 
   inputStyle: {
-    color: 'white',
+    color: "white",
   },
 
   dropdownStyle: {
@@ -62,17 +62,17 @@ const styles = StyleSheet.create({
 
   dropdownItemStyle: {
     borderWidth: 1,
-    borderColor: '#BBBB',
+    borderColor: "#BBBB",
     borderRadius: 10,
     marginTop: 15,
   },
 
   dropdownTextStyle: {
-    color: '#BBBBBB',
+    color: "#BBBBBB",
   },
 
   arrow: {
     width: 20,
     height: 20,
   },
-})
+});
